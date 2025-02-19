@@ -1,0 +1,181 @@
+<?xml version='1.0'?>
+<robot name="leg_v2">
+  <link name="world" />
+  <joint name="world_to_base_link" type="fixed">
+    <parent link="world" />
+    <child link="base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.00078053 0.38691 0.13874" rpy="0 0 0" />
+      <mass value="0.12088" />
+      <inertia ixx="9.8081E-05" ixy="9.4612E-07" ixz="2.8124E-08" iyy="0.00010333" iyz="-3.1739E-06" izz="6.7984E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="top_link">
+    <inertial>
+      <origin xyz="0.0278 -0.047607 -0.033475" rpy="0 0 0" />
+      <mass value="0.16976" />
+      <inertia ixx="0.00018725" ixy="-1.5049E-05" ixz="1.1833E-06" iyy="6.0718E-05" iyz="-1.3171E-06" izz="0.00022186" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/top_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/top_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="top_joint" type="revolute">
+    <origin xyz="-0.0005 0 0.3863" rpy="3.1416 0.21569 -1.5708" />
+    <parent link="base_link" />
+    <child link="top_link" />
+    <axis xyz="0.97683 0 -0.21402" />
+    <limit lower="-1.5707" upper="1.5707" effort="10.0" velocity="1.0" />
+  </joint>
+  <link name="top_leg_link">
+    <inertial>
+      <origin xyz="1.86230742908001E-06 -0.0650315799674251 -0.00650143591499081" rpy="0 0 0" />
+      <mass value="0.340971460084549" />
+      <inertia ixx="0.000275766507008426" ixy="-7.92356178375474E-07" ixz="7.18449967505588E-08" iyy="0.000156979905537363" iyz="3.21612087327145E-06" izz="0.000253699365743641" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/top_leg_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/top_leg_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="top_leg_joint" type="revolute">
+    <origin xyz="-0.0061512 0 -0.027828" rpy="-1.5708 -0.21569 -3.1416" />
+    <parent link="top_link" />
+    <child link="top_leg_link" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="3.1416" effort="10.0" velocity="1.0" />
+  </joint>
+
+  <link name="bot_leg_link">
+    <inertial>
+      <origin xyz="0.00425409083241578 0.051967181578294 -0.00290595261233766" rpy="0 0 0" />
+      <mass value="0.191410352557638" />
+      <inertia ixx="0.000107132831439572" ixy="-1.18879999065235E-06" ixz="-1.03842747656876E-07" iyy="6.22201662138866E-05" iyz="8.81696717966846E-07" izz="0.000107107877945355" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/bot_leg_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/bot_leg_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="bot_leg_joint" type="revolute">
+    <origin xyz="-5.2766E-05 -0.1508 0" rpy="3.1416 -0.9754 0" />
+    <parent link="top_leg_link" />
+    <child link="bot_leg_link" />
+    <axis xyz="0.82792 0 -0.56084" />
+    <limit lower="-1.5707" upper="1.5707" effort="10.0" velocity="1.0" />
+  </joint>
+
+  <link name="bot_rotative_link">
+    <inertial>
+      <origin xyz="-0.0151169062595734 0.00033764731951296 -0.100492815767635" rpy="0 0 0" />
+      <mass value="0.256597826251977" />
+      <inertia ixx="0.000198559819564838" ixy="2.6372411126186E-06" ixz="-4.32480063078894E-05" iyy="0.00038494874780581" iyz="8.1497653776135E-07" izz="0.000301643584436155" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/bot_rotative_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/bot_rotative_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="bot_rotative_joint" type="continuous">
+    <origin xyz="0.00041396 0.0777 -0.00028042" rpy="-1.5708 -0.57575 -3.1416" />
+    <parent link="bot_leg_link" />
+    <child link="bot_rotative_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <link name="wheel_link">
+    <inertial>
+      <origin xyz="-2.44005642717673E-05 1.62295853864472E-05 0.00158674704140573" rpy="0 0 0" />
+      <mass value="0.114883585006723" />
+      <inertia ixx="4.34100569989802E-05" ixy="-2.17958178177772E-08" ixz="1.82482408966648E-08" iyy="4.33674029199083E-05" iyz="7.04332941341273E-10" izz="7.73818830285773E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/wheel_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file:///home/systec-digi2/Desktop/ros2_ws/src/leg_v2/meshes/wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_joint" type="continuous">
+    <origin xyz="0 0 -0.1463" rpy="-1.5708 -0.24093 1.5511" />
+    <parent link="bot_rotative_link" />
+    <child link="wheel_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  
+</robot>
