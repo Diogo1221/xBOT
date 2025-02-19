@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="full_assembly_v1">
+
+  <link name="world"/>
+
+  <joint name="world_to_base" type="fixed">
+    <origin xyz="0 0 0" rpy="3.14 0 3.140"/>
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0572238035323713 -0.0272496760577265 0.647717637408674"
+        rpy="0 0 0" />
+      <mass
+        value="0.0919270554007034" />
+      <inertia
+        ixx="4.84762225859404E-05"
+        ixy="3.15086331548094E-06"
+        ixz="8.73196041368562E-08"
+        iyy="4.59414383955305E-05"
+        iyz="-9.87272955066456E-07"
+        izz="5.38409599938986E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="top_link">
+    <inertial>
+      <origin
+        xyz="-0.0492183990843233 0.0264720631006972 0.0371541006360379"
+        rpy="0 0 0" />
+      <mass
+        value="0.162132601411454" />
+      <inertia
+        ixx="6.02969093353471E-05"
+        ixy="4.51006554265128E-06"
+        ixz="1.44274837638849E-05"
+        iyy="0.000220229502924341"
+        iyz="-6.16449357890242E-06"
+        izz="0.000187811518791442" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/top_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/top_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="top_joint"
+    type="continuous">
+    <origin
+      xyz="-0.14099 -0.64812 -0.0168"
+      rpy="-1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="top_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="top_leg_link">
+    <inertial>
+      <origin
+        xyz="-0.000282452694612217 -0.0570945414995505 0.000146934957783396"
+        rpy="0 0 0" />
+      <mass
+        value="0.302397913101836" />
+      <inertia
+        ixx="0.00019002104707392"
+        ixy="1.67521889965365E-06"
+        ixz="2.28822023056099E-07"
+        iyy="0.000146068977557572"
+        iyz="-1.91232000098984E-06"
+        izz="0.000172763424093268" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/top_leg_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/top_leg_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="top_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0 0.0285 0.071279"
+      rpy="0 1.5708 0" />
+    <parent
+      link="top_link" />
+    <child
+      link="top_leg_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+  lower="-1.5708"
+  upper="1.5708"
+  effort="10"
+  velocity="1" />
+
+  </joint>
+  <link
+    name="bot_leg_link">
+    <inertial>
+      <origin
+        xyz="0.000458046907274245 -0.0535285839807097 -0.00127725352502081"
+        rpy="0 0 0" />
+      <mass
+        value="0.149182925188911" />
+      <inertia
+        ixx="9.02177965742206E-05"
+        ixy="5.62665709860027E-07"
+        ixz="-4.38070923536804E-08"
+        iyy="5.3231987493207E-05"
+        iyz="-2.31266472991463E-06"
+        izz="9.55481694757738E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/bot_leg_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/bot_leg_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bot_leg_joint"
+    type="continuous">
+    <origin
+      xyz="-4.4448E-05 -0.16 0"
+      rpy="0.0061522 1.5708 0" />
+    <parent
+      link="top_leg_link" />
+    <child
+      link="bot_leg_link" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="bot_rotative_link">
+    <inertial>
+      <origin
+        xyz="0.0153389400347632 -0.00412422326118184 -0.100936822505974"
+        rpy="0 0 0" />
+      <mass
+        value="0.252939186250068" />
+      <inertia
+        ixx="0.000198160027007689"
+        ixy="7.45018132790768E-07"
+        ixz="4.32605562373149E-05"
+        iyy="0.00038447794674914"
+        iyz="-3.35128808717316E-06"
+        izz="0.000301102744095015" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/bot_rotative_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/bot_rotative_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bot_rotative_joint"
+    type="continuous">
+    <origin
+      xyz="0.0005 -0.074997 -0.00092176"
+      rpy="-1.5176 0 0" />
+    <parent
+      link="bot_leg_link" />
+    <child
+      link="bot_rotative_link" />
+    <axis
+      xyz="0 0.040843 0.99917" />
+  </joint>
+  <link
+    name="wheel_link">
+    <inertial>
+      <origin
+        xyz="8.16246572599155E-06 -6.04693517014532E-05 0.00158674704897144"
+        rpy="0 0 0" />
+      <mass
+        value="0.114883585043401" />
+      <inertia
+        ixx="4.32968494063647E-05"
+        ixy="2.02201194420691E-08"
+        ixz="2.13249673668122E-08"
+        iyy="4.34806105276206E-05"
+        iyz="1.28078193990095E-09"
+        izz="7.73818830319079E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://full_assembly_v1/meshes/wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0059752 -0.14618"
+      rpy="1.5708 -0.27391 1.5708" />
+    <parent
+      link="bot_rotative_link" />
+    <child
+      link="wheel_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+</robot>

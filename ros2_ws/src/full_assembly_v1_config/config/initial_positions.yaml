@@ -1,0 +1,8 @@
+# Default initial positions for full_assembly_v1's ros2_control fake system
+
+initial_positions:
+  bot_leg_joint: 0.0
+  bot_rotative_joint: 0.0
+  top_joint: 0.0
+  top_leg_joint: 0.0
+  wheel_joint: 0.0
